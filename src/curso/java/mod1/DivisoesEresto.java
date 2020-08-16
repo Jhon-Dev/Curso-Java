@@ -1,4 +1,4 @@
-package curso.java.executavel;
+package curso.java.mod1;
 
 import javax.swing.JOptionPane;
 
