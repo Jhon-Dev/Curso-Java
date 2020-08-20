@@ -3,20 +3,20 @@ package curso.java.classes;
 public class Aluno {
 
 
-
-		String nome;
-		int idade;
-		String dataNascimento;
-		String registroGeral;
-		String numeroCpf;
-		String nomeMae;
-		String nomePai;
-		String dataMatricula;
-		String nomeMatricula;
-		String nomeEscola;
-		String serieMatriculado;
+	/*Esses são os Atributos do aluno*/
+		public String nome;
+		public int idade;
+		public String dataNascimento;
+		public String registroGeral;
+		public String numeroCpf;
+		public String nomeMae;
+		public String nomePai;
+		public String dataMatricula;
+		public String nomeMatricula;
+		public String nomeEscola;
+		public String serieMatriculado;
 		
-		public Aluno() {   /*Cria os dados na memoria*/
+		public Aluno() {   /*Cria os dados na memoria - Sendo padrão do Java*/
 						
 		}
  
