@@ -20,10 +20,17 @@ public class PrimeiraClasseJava {
 		aluno1.setNomeMatricula("");
 		aluno1.setSerieMatriculado("3");
         aluno1.setNomeEscola("Escola Jdev");
+        aluno1.setNota1(90);
+        aluno1.setNota2(80.8);
+        aluno1.setNota3(70.9);
+        aluno1.setNota2(90.7);
+
+
 		
 		System.out.println("Nome é = " + aluno1.getNome());
 		System.out.println("Idade é = " + aluno1.getIdade());
 		System.out.println("Nascimento é = " + aluno1.getDataNascimento());
+		System.out.println("Média da nota é: " + aluno1.getMediaNota());
 		
 		/*===============================================================*/
         System.out.println("----------------------------------------");
@@ -40,9 +47,9 @@ public class PrimeiraClasseJava {
 		
 		Aluno aluno3 = new Aluno();
 
-		Aluno aluno4 = new Aluno("Maria"); 
+		Aluno aluno4 = new Aluno(); 
 		
-		Aluno aluno5 = new Aluno ("José", 35);
+		Aluno aluno5 = new Aluno ();
 	}
 
 }
