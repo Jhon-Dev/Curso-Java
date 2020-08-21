@@ -23,7 +23,7 @@ public class PrimeiraClasseJava {
         aluno1.setNota1(90);
         aluno1.setNota2(80.8);
         aluno1.setNota3(70.9);
-        aluno1.setNota2(90.7);
+        aluno1.setNota4(90.7);
 
 
 		
@@ -31,6 +31,11 @@ public class PrimeiraClasseJava {
 		System.out.println("Idade é = " + aluno1.getIdade());
 		System.out.println("Nascimento é = " + aluno1.getDataNascimento());
 		System.out.println("Média da nota é: " + aluno1.getMediaNota());
+		System.out.println("Resultado = " + (aluno1.getAlunoAprovado() ?  "Aprovado" : "Reprovado"));
+		System.out.println("resultado 2 = " + aluno1.getAlunoAprovado2());
+
+		
+		
 		
 		/*===============================================================*/
         System.out.println("----------------------------------------");
@@ -43,6 +48,7 @@ public class PrimeiraClasseJava {
 		System.out.println("Aluno 2 Nome é = " + aluno2.getNome());
 		System.out.println("Aluno 2 Idade é = " + aluno2.getIdade());
 		System.out.println("Aluno 2 Nascimento é = " + aluno2.getDataNascimento());
+
 	
 		
 		Aluno aluno3 = new Aluno();
