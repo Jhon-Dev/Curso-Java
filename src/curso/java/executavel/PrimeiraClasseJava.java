@@ -1,61 +1,59 @@
 package curso.java.executavel;
 
+import javax.swing.JOptionPane;
+
 import curso.java.classes.Aluno;
 
 public class PrimeiraClasseJava {
 
 	public static void main(String[] args) {
 
+  
+		String nome = JOptionPane.showInputDialog("Qual o nome do aluno?");
+		String idade = JOptionPane.showInputDialog("Qual a idade?");
+		String dataNascumento = JOptionPane.showInputDialog("Qual a data de nascimento?");
+		String registroGeral = JOptionPane.showInputDialog("Registro Geral?");
+		String cpf = JOptionPane.showInputDialog("Qual é o cpf?");
+		String NomeMae = JOptionPane.showInputDialog("Qual é o nome da mãe?");
+		String NomePai = JOptionPane.showInputDialog("Qual é o nome do Pai?");
+		String DataMatricula = JOptionPane.showInputDialog("Qual é a matricula?");
+		String NomeMatricula = JOptionPane.showInputDialog("Qual é o nome da Matricula?");
+		String SerieMatriculado = JOptionPane.showInputDialog("Qual a serie matriculada?");
+		String NomeEscola = JOptionPane.showInputDialog("Qual é o nome da escola?");
+		String Nota1 = JOptionPane.showInputDialog("Qual é a nota 1?");
+		String Nota2 = JOptionPane.showInputDialog("Qual é a nota 2?");
+		String Nota3 = JOptionPane.showInputDialog("Qual é a nota 3?");
+		String Nota4 = JOptionPane.showInputDialog("Qual é a nota 4?");
 
 		Aluno aluno1 = new Aluno();	
 		
-		aluno1.setNome("Jhonatan");
-		aluno1.setIdade(23);
-		aluno1.setDataNascimento("08/05/1997");
-		aluno1.setRegistroGeral("200870");
-		aluno1.setNumeroCpf("167.870.267-65");
-		aluno1.setNomeMae("Elizangela");
-		aluno1.setNomePai("Dehon");
-		aluno1.setDataMatricula("20");
-		aluno1.setNomeMatricula("");
-		aluno1.setSerieMatriculado("3");
-        aluno1.setNomeEscola("Escola Jdev");
-        aluno1.setNota1(90);
-        aluno1.setNota2(80.8);
-        aluno1.setNota3(70.9);
-        aluno1.setNota4(90.7);
+		aluno1.setNome(nome);
+		aluno1.setIdade(Integer.valueOf(idade));
+		aluno1.setDataNascimento(dataNascumento);
+		aluno1.setRegistroGeral(registroGeral);
+		aluno1.setNumeroCpf(cpf);
+		aluno1.setNomeMae(NomeMae);
+		aluno1.setNomePai(NomePai);
+		aluno1.setDataMatricula(DataMatricula);
+		aluno1.setNomeMatricula(NomeMatricula);
+		aluno1.setSerieMatriculado(SerieMatriculado);
+        aluno1.setNomeEscola(NomeEscola);
+        aluno1.setNota1(Double.parseDouble(Nota1));
+        aluno1.setNota2(Double.parseDouble(Nota2));
+        aluno1.setNota3(Double.parseDouble(Nota3));
+        aluno1.setNota4(Double.parseDouble(Nota4));
 
-
-		
+        
 		System.out.println("Nome é = " + aluno1.getNome());
 		System.out.println("Idade é = " + aluno1.getIdade());
 		System.out.println("Nascimento é = " + aluno1.getDataNascimento());
 		System.out.println("Média da nota é: " + aluno1.getMediaNota());
 		System.out.println("Resultado = " + (aluno1.getAlunoAprovado() ?  "Aprovado" : "Reprovado"));
 		System.out.println("resultado 2 = " + aluno1.getAlunoAprovado2());
+		
+		
+		
 
-		
-		
-		
-		/*===============================================================*/
-        System.out.println("----------------------------------------");
-        
-		Aluno aluno2 = new Aluno();
-		aluno2.setNome("João");
-		aluno2.setIdade(23);
-		aluno2.setDataNascimento("18/06/2000");
-
-		System.out.println("Aluno 2 Nome é = " + aluno2.getNome());
-		System.out.println("Aluno 2 Idade é = " + aluno2.getIdade());
-		System.out.println("Aluno 2 Nascimento é = " + aluno2.getDataNascimento());
-
-	
-		
-		Aluno aluno3 = new Aluno();
-
-		Aluno aluno4 = new Aluno(); 
-		
-		Aluno aluno5 = new Aluno ();
 	}
 
 }
