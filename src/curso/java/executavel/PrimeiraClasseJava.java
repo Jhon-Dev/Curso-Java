@@ -4,24 +4,41 @@ import curso.java.classes.Aluno;
 
 public class PrimeiraClasseJava {
 
-	/*Main é um metodo auto execultavel em Java*/
 	public static void main(String[] args) {
 
-        /*new Aluno () é uma instância  (Criação de Objeto)*/
-		/*aluno1 é uma referencia  para o objeto*/
-		Aluno aluno1 = new Aluno();	/*Aqui será o João */
-		
-		aluno1.nome = "João";
-		aluno1.idade = 35;
-		
-		System.out.println("O nome do Aluno 1 é = " + aluno1.nome);
-		
-		System.out.println("A indade do aluno 1 é = " + aluno1.idade);
 
+		Aluno aluno1 = new Aluno();	
 		
-		Aluno aluno2 = new Aluno(); /*Aqui será Pedro*/
+		aluno1.setNome("Jhonatan");
+		aluno1.setIdade(23);
+		aluno1.setDataNascimento("08/05/1997");
+		aluno1.setRegistroGeral("200870");
+		aluno1.setNumeroCpf("167.870.267-65");
+		aluno1.setNomeMae("Elizangela");
+		aluno1.setNomePai("Dehon");
+		aluno1.setDataMatricula("20");
+		aluno1.setNomeMatricula("");
+		aluno1.setSerieMatriculado("3");
+        aluno1.setNomeEscola("Escola Jdev");
 		
-		Aluno aluno3 = new Aluno(); /*Aqui será o Alex*/
+		System.out.println("Nome é = " + aluno1.getNome());
+		System.out.println("Idade é = " + aluno1.getIdade());
+		System.out.println("Nascimento é = " + aluno1.getDataNascimento());
+		
+		/*===============================================================*/
+        System.out.println("----------------------------------------");
+        
+		Aluno aluno2 = new Aluno();
+		aluno2.setNome("João");
+		aluno2.setIdade(23);
+		aluno2.setDataNascimento("18/06/2000");
+
+		System.out.println("Aluno 2 Nome é = " + aluno2.getNome());
+		System.out.println("Aluno 2 Idade é = " + aluno2.getIdade());
+		System.out.println("Aluno 2 Nascimento é = " + aluno2.getDataNascimento());
+	
+		
+		Aluno aluno3 = new Aluno();
 
 		Aluno aluno4 = new Aluno("Maria"); 
 		
