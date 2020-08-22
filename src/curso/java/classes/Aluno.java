@@ -3,21 +3,21 @@ package curso.java.classes;
 public class Aluno {
 
 
-		String nome;
-		int idade;
-		String dataNascimento;
-		String registroGeral;
-		String numeroCpf;
-		String nomeMae;
-		String nomePai;
-		String dataMatricula;
-		String nomeMatricula;
-		String nomeEscola;
-		String serieMatriculado;
-		double nota1;
-		double nota2;
-		double nota3;
-		double nota4;
+		private String nome;
+		private int idade;
+		private String dataNascimento;
+		private String registroGeral;
+		private String numeroCpf;
+		private String nomeMae;
+		private String nomePai;
+		private String dataMatricula;
+		private String nomeMatricula;
+		private String nomeEscola;
+		private String serieMatriculado;
+		private double nota1;
+		private double nota2;
+		private double nota3;
+		private double nota4;
 		
 		
 		public double getNota1() {
@@ -174,6 +174,41 @@ public class Aluno {
 					+ ", nota2=" + nota2 + ", nota3=" + nota3 + ", nota4=" + nota4 + "]";
 		}
 
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+			result = prime * result + ((numeroCpf == null) ? 0 : numeroCpf.hashCode());
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Aluno other = (Aluno) obj;
+			if (nome == null) {
+				if (other.nome != null)
+					return false;
+			} else if (!nome.equals(other.nome))
+				return false;
+			if (numeroCpf == null) {
+				if (other.numeroCpf != null)
+					return false;
+			} else if (!numeroCpf.equals(other.numeroCpf))
+				return false;
+			return true;
+		}
+
+
+		
+		
+		
 		
 		
 }
