@@ -14,7 +14,7 @@ public class PrimeiraClasseJava {
 
 		List<Aluno> alunos = new ArrayList<Aluno>();
 
-		for (int qtd = 1; qtd <= 2; qtd++) {
+		for (int qtd = 1; qtd <= 1; qtd++) {
 
 			String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + qtd + "?");
 
@@ -74,28 +74,20 @@ public class PrimeiraClasseJava {
 			alunos.add(aluno1);
 		}
 
-		for (Aluno aluno : alunos) {
+		for (int pos = 0; pos < alunos.size(); pos++) {
 
-			if (aluno.getNome().equalsIgnoreCase("alex")) {
-				alunos.remove(aluno);
-				break;
-			} else {
-				System.out.println(aluno); /* Descrição do objeto na memoria */
-				System.out.println("Média do aluno = " + aluno.getMediaNota());
-				System.out.println("Resultado = " + aluno.getAlunoAprovado2());
-				System.out.println("-------------------------------------------------------------------");
+			Aluno aluno = alunos.get(pos);
+
+			System.out.println("Aluno = " + aluno.getNome());
+			System.out.println("Média do aluno = " + aluno.getMediaNota());
+			System.out.println("Resultado = " + aluno.getAlunoAprovado());
+			System.out.println("-----------------------------------------");
+
+			for (int posd = 0; posd < aluno.getDisciplinas().size(); posd ++) {
+				
+				Disciplina disciplina = aluno.getDisciplinas().get(posd);
+				System.out.println("Matéria " + disciplina.getDisciplina() + " nota = " + disciplina.getNota());
 			}
-		}
-
-		for (Aluno aluno : alunos) {
-			System.out.println("Alunos que Sobraram na lista");
-			System.out.println(aluno.getNome());
-			System.out.println("Suas matérias são");
-			
-			for (Disciplina disciplina : aluno.getDisciplinas()) {
-				System.out.println(disciplina.getDisciplina());
-			}
-
 		}
 	}
 }
