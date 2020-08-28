@@ -1,5 +1,6 @@
 package curso.java.classes;
 
+/*Classe base, classe pai*/
 public class Pessoa {
 
 	
@@ -53,5 +54,6 @@ public class Pessoa {
 		this.nomePai = nomePai;
 	}
 	
+
 	
 }
