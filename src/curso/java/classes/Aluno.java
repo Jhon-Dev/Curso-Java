@@ -5,15 +5,8 @@ import java.util.List;
 
 import curso.java.constantes.StatusAluno;
 
-public class Aluno {
+public class Aluno extends Pessoa {
 
-	private String nome;
-	private int idade;
-	private String dataNascimento;
-	private String registroGeral;
-	private String numeroCpf;
-	private String nomeMae;
-	private String nomePai;
 	private String dataMatricula;
 	private String nomeMatricula;
 	private String nomeEscola;
@@ -29,9 +22,18 @@ public class Aluno {
 		return disciplinas;
 	}
 
+	public Aluno() {
+
+	}
+
+	public Aluno(String nomePadrao, int idadePadrao) {
+		nome = nomePadrao;
+		idade = idadePadrao;
+	}
+
 	public void setNome(String nome) {
 
-		this.nome = nome;
+		super.nome = nome;
 	}
 
 	public String getNome() {
@@ -146,12 +148,12 @@ public class Aluno {
 	public String getAlunoAprovado2() {
 		double media = this.getMediaNota();
 		if (media >= 50) {
-			if (media >=70) {
-				return StatusAluno.APROVADO;				
-			}else {
-				return StatusAluno.RECUPERACAO;	
+			if (media >= 70) {
+				return StatusAluno.APROVADO;
+			} else {
+				return StatusAluno.RECUPERACAO;
 			}
-		} else { 
+		} else {
 			return StatusAluno.REPROVADO;
 		}
 	}
