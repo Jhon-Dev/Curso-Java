@@ -202,4 +202,8 @@ public class Aluno extends Pessoa {
 
 		return super.pessoaMaiorIdade();
 	}
+	
+	public String msgMaiorIdade() {
+		return this.pessoaMaiorIdade() ? "Obaaa aluno é maior de idade" : "Vish você é menor de Idade";
+	}
 }
