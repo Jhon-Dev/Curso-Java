@@ -197,4 +197,9 @@ public class Aluno extends Pessoa {
 		return true;
 	}
 
+	@Override  /*Identifica metodo sobrescrito*/
+	public boolean pessoaMaiorIdade() {
+
+		return super.pessoaMaiorIdade();
+	}
 }
