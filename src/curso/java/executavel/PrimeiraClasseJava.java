@@ -9,13 +9,14 @@ import javax.swing.JOptionPane;
 import curso.java.classes.Aluno;
 import curso.java.classes.Diretor;
 import curso.java.classes.Disciplina;
-import curso.java.classes.Secretario;
 import curso.java.classesauxiloares.FuncaoAutenticao;
 import curso.java.constantes.StatusAluno;
 
 public class PrimeiraClasseJava {
 
 	public static void main(String[] args) {
+		
+		try {
 
 		String login = JOptionPane.showInputDialog("Informe o Login");
 		String senha = JOptionPane.showInputDialog("Informe a Senha");
@@ -122,6 +123,11 @@ public class PrimeiraClasseJava {
 			}
 		} else {
 			JOptionPane.showMessageDialog(null, "Acesso não permitido");
+		}
+		
+		}catch (Exception e) {
+			 e.printStackTrace(); /*Imprimi erro no console Java*/
+			JOptionPane.showMessageDialog(null, "Erro ao processar notas");
 		}
 	}
 }
