@@ -1,8 +1,10 @@
 package curso.java.executavel;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -18,6 +20,10 @@ public class PrimeiraClasseJava {
 
 		try {
 			
+			File fil = new File("New.txt");
+			
+			Scanner scanner = new Scanner(fil);
+
 			String login = JOptionPane.showInputDialog("Informe o Login");
 			String senha = JOptionPane.showInputDialog("Informe a Senha");
 
@@ -27,16 +33,16 @@ public class PrimeiraClasseJava {
 										 * 100% Legitimo
 										 */
 
-				List<Aluno> alunos =  new ArrayList<Aluno>();
+				List<Aluno> alunos = new ArrayList<Aluno>();
 
 				HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
-				for (int qtd = 1; qtd <= 2; qtd++) {
+				for (int qtd = 1; qtd <= 1; qtd++) {
 
 					String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + qtd + "?");
+					String idade = JOptionPane.showInputDialog("Qual a idade?");
 
 					/*
-					 * String idade = JOptionPane.showInputDialog("Qual a idade?"); String
 					 * dataNascumento = JOptionPane.showInputDialog("Qual a data de nascimento?");
 					 * String registroGeral = JOptionPane.showInputDialog("Registro Geral?"); String
 					 * cpf = JOptionPane.showInputDialog("Qual é o cpf?"); String NomeMae =
@@ -51,9 +57,9 @@ public class PrimeiraClasseJava {
 					Aluno aluno1 = new Aluno();
 
 					aluno1.setNome(nome);
+					aluno1.setIdade(Integer.valueOf(idade));
 
 					/*
-					 * aluno1.setIdade(Integer.valueOf(idade));
 					 * aluno1.setDataNascimento(dataNascumento);
 					 * aluno1.setRegistroGeral(registroGeral); aluno1.setNumeroCpf(cpf);
 					 * aluno1.setNomeMae(NomeMae); aluno1.setNomePai(NomePai);
@@ -128,26 +134,32 @@ public class PrimeiraClasseJava {
 				JOptionPane.showMessageDialog(null, "Acesso não permitido");
 			}
 
-		} catch (Exception e) {
-			
+		} catch (NumberFormatException e) {
+
 			StringBuilder saida = new StringBuilder();
 
 			/* Imprimi erro no console Java */
-			e.printStackTrace(); 
+			e.printStackTrace();
 
 			/* Mensagem do erro ou causa */
 			System.out.println("Mensagem" + e.getMessage());
 
 			for (int pos = 0; pos < e.getStackTrace().length; pos++) {
-				
+
 				saida.append("\n Classe de erro : " + e.getStackTrace()[pos].getClassName());
 				saida.append("\n Método de erro : " + e.getStackTrace()[pos].getMethodName());
 				saida.append("\n Linha de erro : " + e.getStackTrace()[pos].getLineNumber());
 				saida.append("\n Linha de erro : " + e.getClass().getName());
 
 				JOptionPane.showMessageDialog(null, "Erro ao processar notas" + saida.toString());
-			}			
+			}
 
+		} catch (NullPointerException e) {
+			JOptionPane.showMessageDialog(null, "Opaa, um null pointer exeption : " + e.getClass());
+
+		} catch (Exception e) { /*Captura todas as exeções que não prevemos*/
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Erro inesperado : " + e.getClass().getName() );
 		}
 	}
 }
