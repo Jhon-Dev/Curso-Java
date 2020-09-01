@@ -1,6 +1,7 @@
 package curso.java.executavel;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -132,7 +133,7 @@ public class PrimeiraClasseJava {
 				JOptionPane.showMessageDialog(null, "Acesso não permitido");
 			}
 
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
 
 			StringBuilder saida = new StringBuilder();
 
@@ -152,27 +153,16 @@ public class PrimeiraClasseJava {
 				JOptionPane.showMessageDialog(null, "Erro ao processar notas" + saida.toString());
 			}
 
-		} catch (NullPointerException e) {
-			JOptionPane.showMessageDialog(null, "Opaa, um null pointer exeption : " + e.getClass());
-
-		} catch (ExcessaoProcessarNota e) { /* Captura todas as exeções que não prevemos */
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Erro da excecao customizada: " + e.getClass().getName());
-
 		} finally { /* Sempre é execultado occorendo erros ou não */
 
 			JOptionPane.showMessageDialog(null, "Obrigado por aprender Java comigo");
 		}
 	}
 
-	public static void lerArquivo() throws ExcessaoProcessarNota {
-		try {
+	public static void lerArquivo() throws FileNotFoundException {
 
-			File fil = new File("New.txt");
-			Scanner scanner = new Scanner(fil);
-		} catch (Exception e) {
-			throw new ExcessaoProcessarNota(e.getMessage());
-		}
+		File fil = new File("New.txt");
+		Scanner scanner = new Scanner(fil);
 	}
 
 }
