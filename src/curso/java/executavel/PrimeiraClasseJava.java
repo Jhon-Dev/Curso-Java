@@ -1,8 +1,11 @@
 package curso.java.executavel;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
 import curso.java.classes.Aluno;
@@ -10,18 +13,14 @@ import curso.java.classes.Diretor;
 import curso.java.classes.Disciplina;
 import curso.java.classesauxiloares.FuncaoAutenticao;
 import curso.java.constantes.StatusAluno;
+import curso.java.excecoes.ExcessaoProcessarNota;
 
 public class PrimeiraClasseJava {
 
 	public static void main(String[] args) {
 
 		try {
-
-			/*
-			 * File fil = new File("New.txt");
-			 * 
-			 * Scanner scanner = new Scanner(fil);
-			 */
+			lerArquivo();
 
 			String login = JOptionPane.showInputDialog("Informe o Login");
 			String senha = JOptionPane.showInputDialog("Informe a Senha");
@@ -156,13 +155,24 @@ public class PrimeiraClasseJava {
 		} catch (NullPointerException e) {
 			JOptionPane.showMessageDialog(null, "Opaa, um null pointer exeption : " + e.getClass());
 
-		} catch (Exception e) { /* Captura todas as exeções que não prevemos */
+		} catch (ExcessaoProcessarNota e) { /* Captura todas as exeções que não prevemos */
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Erro inesperado : " + e.getClass().getName());
+			JOptionPane.showMessageDialog(null, "Erro da excecao customizada: " + e.getClass().getName());
 
 		} finally { /* Sempre é execultado occorendo erros ou não */
 
 			JOptionPane.showMessageDialog(null, "Obrigado por aprender Java comigo");
 		}
 	}
+
+	public static void lerArquivo() throws ExcessaoProcessarNota {
+		try {
+
+			File fil = new File("New.txt");
+			Scanner scanner = new Scanner(fil);
+		} catch (Exception e) {
+			throw new ExcessaoProcessarNota(e.getMessage());
+		}
+	}
+
 }
