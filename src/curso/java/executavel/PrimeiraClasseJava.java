@@ -14,7 +14,6 @@ import curso.java.classes.Diretor;
 import curso.java.classes.Disciplina;
 import curso.java.classesauxiloares.FuncaoAutenticao;
 import curso.java.constantes.StatusAluno;
-import curso.java.excecoes.ExcessaoProcessarNota;
 
 public class PrimeiraClasseJava {
 
@@ -26,11 +25,9 @@ public class PrimeiraClasseJava {
 			String login = JOptionPane.showInputDialog("Informe o Login");
 			String senha = JOptionPane.showInputDialog("Informe a Senha");
 
-			if (new FuncaoAutenticao(new Diretor(login, senha))
-					.autenticar()) { /*
-										 * Vou travar o contrato para autorizar somente quem realmente tem o contrato
-										 * 100% Legitimo
-										 */
+			if (new FuncaoAutenticao(new Diretor(login, senha)).autenticar()) {
+
+
 
 				List<Aluno> alunos = new ArrayList<Aluno>();
 
@@ -161,7 +158,7 @@ public class PrimeiraClasseJava {
 
 	public static void lerArquivo() throws FileNotFoundException {
 
-		File fil = new File("New.txt");
+		File fil = new File("c://New.txt");
 		Scanner scanner = new Scanner(fil);
 	}
 
