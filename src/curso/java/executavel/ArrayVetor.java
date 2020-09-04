@@ -6,6 +6,26 @@ public class ArrayVetor {
 
 	public static void main(String[] args) {
 
+
+		String valores [] = new String [4];
+		
+		valores [0] = "jhonatan";
+		valores [1] = "90";
+		valores [2] = "Curso de Java";
+		valores [3] = "contato@jncenter.com.br";
+
+
+		
+		for (int pos = 0;  pos < valores.length; pos++) {
+			System.out.println("Valor na posição  " + pos + " é = " + valores[pos]);
+		}
+		
+		
+		
+		
+		
+		
+		
 		/* Array pode ser de todos os tipos de dados e objetos também */
 
 		String posicoes = JOptionPane.showInputDialog("Quantas posições o Array deve ter?");
