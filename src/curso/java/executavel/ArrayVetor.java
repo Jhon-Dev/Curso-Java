@@ -1,47 +1,33 @@
 package curso.java.executavel;
 
-import javax.swing.JOptionPane;
+import curso.java.classes.Aluno;
+import curso.java.classes.Disciplina;
 
 public class ArrayVetor {
 
 	public static void main(String[] args) {
 
+		double[] notas = { 8.8, 9.7, 7.6, 6.8 };
+		double[] notasLogica = { 8.8, 9.7, 7.6, 6.8 };
 
-		String valores [] = new String [4];
-		
-		valores [0] = "jhonatan";
-		valores [1] = "90";
-		valores [2] = "Curso de Java";
-		valores [3] = "contato@jncenter.com.br";
-
+		/*Criação do aluno*/
+		Aluno aluno = new Aluno();
+		aluno.setNome("Jhonatan Nuss");
+		aluno.setNomeEscola("Lions");
 
 		
-		for (int pos = 0;  pos < valores.length; pos++) {
-			System.out.println("Valor na posição  " + pos + " é = " + valores[pos]);
-		}
+		/*Criação da disciplina*/
+		Disciplina disciplina = new Disciplina();
+		disciplina.setDisciplina("Curso de JAva");
+		disciplina.setNota(notas);
+		
+		aluno.getDisciplinas().add(disciplina);
 		
 		
+		Disciplina disciplina2 = new Disciplina();
+		disciplina2.setDisciplina("Kotlin");
+		disciplina.setNota(notasLogica);
 		
-		
-		
-		
-		
-		/* Array pode ser de todos os tipos de dados e objetos também */
-
-		String posicoes = JOptionPane.showInputDialog("Quantas posições o Array deve ter?");
-
-		/* Array sempre deve ter a quantidade de posições definidas */
-		double notas[] = new double[Integer.valueOf(posicoes)];
-
-		for (int pos = 0; pos < notas.length; pos++) {
-			String valor = JOptionPane.showInputDialog("Qual o valor da posição = " + pos);
-			notas[pos] = Double.valueOf(valor);
-		}
-
-		for (int pos = 0;  pos < notas.length; pos++) {
-			System.out.println("Nota " + (pos + 1) + " é = " + notas[pos]);
-		}
-
+		aluno.getDisciplinas().add(disciplina2);
 	}
-
 }
