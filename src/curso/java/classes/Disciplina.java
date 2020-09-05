@@ -5,6 +5,9 @@ import java.util.Arrays;
 /*Essa classe Disciplina servirá para todos objetos e instâncias de notas e materias*/
 public class Disciplina {
 
+	/*Cada disciplina tera 4 notas durante o ano intenro*/
+	
+	
 	private double nota[] = new double[4];
 	private String disciplina;
 
