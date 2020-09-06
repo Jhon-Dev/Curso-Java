@@ -24,20 +24,33 @@ public class ArrayVetor {
 
 		Disciplina disciplina2 = new Disciplina();
 		disciplina2.setDisciplina("Kotlin");
-		disciplina.setNota(notasLogica);
+		disciplina2.setNota(notasLogica);
 
 		aluno.getDisciplinas().add(disciplina2);
 
 		System.out.println("Nome do aluno = " + aluno.getNome() + " Inscrito no curso " + aluno.getNomeEscola());
+
 		System.out.println(" ''----------------Disciplina do aluno-------------'' ");
 
-		for (Disciplina disci : aluno.getDisciplinas()) {
-			System.out.println("Disciplina : " + disci.getDisciplina());
+		for (Disciplina d : aluno.getDisciplinas()) {
+
+			System.out.println("Disciplina : " + d.getDisciplina());
 			System.out.println("As notas da disciplina são : ");
-			for (int pos = 0; pos < disci.getNota().length; pos++) {
-				System.out.println("Nota " + pos +  " é igual = " + disci.getNota()[pos]);
-				
+
+			double notaMax = 0.0;
+
+			for (int pos = 0; pos < d.getNota().length; pos++) {
+				System.out.println("Nota " + pos + " é igual = " + d.getNota()[pos]);
+
+				if (pos == 0) {
+					notaMax = d.getNota()[pos];
+				} else {
+					if (d.getNota()[pos] > notaMax) {
+						notaMax = d.getNota()[pos];
+					}
+				}
 			}
+			System.out.println("A maior nota da Disciplina " + d.getDisciplina() + " é de " + notaMax);			
 		}
 	}
 }
