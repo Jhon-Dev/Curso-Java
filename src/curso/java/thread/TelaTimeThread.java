@@ -29,7 +29,6 @@ public class TelaTimeThread extends JDialog {
 
 	private JButton jButton = new JButton("Start");
 	private JButton jButton2 = new JButton("Stop");
-	
 
 	private Runnable thread1 = new Runnable() {
 
@@ -37,8 +36,25 @@ public class TelaTimeThread extends JDialog {
 		public void run() {
 
 			while (true) { /* Fica sempre rodando */
-				mostraTempo
-						.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm.ss").format(Calendar.getInstance().getTime()));
+				mostraTempo.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm.ss").format(Calendar.getInstance().getTime()));
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+
+			}
+
+		}
+	};
+
+	private Runnable thread2 = new Runnable() {
+
+		@Override
+		public void run() {
+
+			while (true) { /* Fica sempre rodando */
+				mostraTempo2.setText(new SimpleDateFormat("dd-MM-yyyy hh:mm:ss").format(Calendar.getInstance().getTime()));
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
@@ -51,7 +67,9 @@ public class TelaTimeThread extends JDialog {
 	};
 
 	private Thread threadTime1;
-	
+	private Thread threadTime2;
+
+
 	public TelaTimeThread() { /* Executa oque tiver dentro no momento da abertura, ou execução */
 
 		setTitle("Minha tela de time com thread");
@@ -97,27 +115,38 @@ public class TelaTimeThread extends JDialog {
 
 		jPanel.add(jButton2, gridBagConstraints);
 
-		
-		jButton.addActionListener(new ActionListener() { /*Executa o click no botão*/
-			
+		jButton.addActionListener(new ActionListener() { /* Executa o click no botão */
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
 				threadTime1 = new Thread(thread1);
 				threadTime1.start();
 				
+				threadTime2 = new Thread(thread2);
+				threadTime2.start();
+				
+				jButton.setEnabled(false);
+				jButton2.setEnabled(true);
+
+
+			}
+		});
+
+		jButton2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				threadTime1.stop();
+				threadTime2.stop();
+
+				jButton.setEnabled(true);
+				jButton2.setEnabled(false);
 			}
 		});
 		
-		jButton2.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				threadTime1.stop();
-				
-			}
-		});
+		jButton2.setEnabled(false);
 		
 		add(jPanel, BorderLayout.WEST);
 		/* Sempre será o ultimo comando */
