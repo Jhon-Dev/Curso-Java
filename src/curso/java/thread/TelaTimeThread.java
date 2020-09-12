@@ -30,9 +30,7 @@ public class TelaTimeThread extends JDialog {
 	private JButton jButton = new JButton("Gerar..");
 	private JButton jButton2 = new JButton("Stop");
 
-
 	private ImplementacaoFilaThread fila = new ImplementacaoFilaThread();
-
 
 	public TelaTimeThread() { /* Executa oque tiver dentro no momento da abertura, ou execução */
 
@@ -82,10 +80,17 @@ public class TelaTimeThread extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				ObjetoFilaThread filaThread = new ObjetoFilaThread ();
-				filaThread.setNome(mostraTempo.getText());
-				filaThread.setEmail(mostraTempo2.getText());
-				fila.add(filaThread);
+				if (fila == null) {
+					fila = new ImplementacaoFilaThread();
+					fila.start();
+				}
+				for (int qnt = 0; qnt < 100; qnt++) { /*Simulando 100 envios em massa*/
+					
+					ObjetoFilaThread filaThread = new ObjetoFilaThread();
+					filaThread.setNome(mostraTempo.getText());
+					filaThread.setEmail(mostraTempo2.getText() + " - " + qnt);
+					fila.add(filaThread);
+				}
 			}
 		});
 
@@ -94,12 +99,12 @@ public class TelaTimeThread extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-
+			fila.stop();
+			fila = null;
 			}
 		});
-		
+
 		fila.start();
-		
 		add(jPanel, BorderLayout.WEST);
 		/* Sempre será o ultimo comando */
 		setVisible(true); /* Torna a tela visivel para o usuário */
